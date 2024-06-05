@@ -1,0 +1,6 @@
+[ ! -d ~/.fpath ] && mkdir ~/.fpath
+[ ! -s ~/.fpath/_kubectl ] && kubectl completion zsh > ~/.fpath/_kubectl
+[ ! -s ~/.fpath/_rustup ] && rustup completions zsh > ~/.fpath/_rustup
+[ ! -s ~/.fpath/_cargo ] && rustup completions zsh cargo > ~/.fpath/_cargo
+fpath+=~/.fpath
+fpath+=/opt/homebrew/share/zsh/site-functions

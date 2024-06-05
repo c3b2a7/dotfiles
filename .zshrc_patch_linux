@@ -1,0 +1,3 @@
+[ ! -d ~/.fpath ] && mkdir ~/.fpath
+[ ! -s ~/.fpath/_kubectl ] && kubectl completion zsh > ~/.fpath/_kubectl
+fpath+=~/.fpath
