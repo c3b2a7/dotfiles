@@ -1,0 +1,18 @@
+ulimit -n 10240
+
+# load aliases
+[ -s ~/.aliases ] && source ~/.aliases
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --prompt '> ' --bind '?:toggle-preview' --preview-window hidden:wrap --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+# GPG_TTY
+export GPG_TTY=$(tty)
+
+{{- if eq .chezmoi.os "darwin" }}
+{{   template "zprofile_darwin.tmpl" . }}
+{{- else if eq .chezmoi.os "linux" }}
+{{   template "zprofile_linux.tmpl" . }}
+{{- end }}

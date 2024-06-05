@@ -1,0 +1,18 @@
+[user]
+    name = Neptune Tan
+    email = lifei@smyfinancial.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOg4JNc0p23h651BmlnZIurOjTNCc6nMox18sUTp60gP
+[core]
+    excludesfile = {{ .XDG_CONFIG_HOME }}//.config//git//gitignore_global
+	autocrlf = true
+    quotepath = false
+    sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = {{ .XDG_CONFIG_HOME }}//git//allowed-signers
+	program = {{ .chezmoi.homeDir }}//AppData//Local//1Password//app//8//op-ssh-sign.exe
+[http]
+	sslBackend = schannel

@@ -1,0 +1,7 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{   template "gitconfig_darwin.tmpl" . }}
+{{- else if eq .chezmoi.os "linux" -}}
+{{   template "gitconfig_linux.tmpl" . }}
+{{- else if eq .chezmoi.os "windows" -}}
+{{   template "gitconfig_windows.tmpl" . }}
+{{- end -}}

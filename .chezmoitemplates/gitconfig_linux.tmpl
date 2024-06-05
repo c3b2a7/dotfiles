@@ -1,0 +1,16 @@
+[user]
+    name = c3b2a
+    email = c3b2a@qq.com
+    signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkMij9/rucH8YXVG+r5LtVS7/FQOIdd4b16FRWU7aVVmVKCMoinbvC3FfDPMBv3TzVxXVbQXIky+DdDFutZ5s4vxBO1m0trsKOL5kkurEZOhpxGF7qBeaGnQU4WFTl2i9p9NGO4ZjJS2WXlRIAfFAB76Igcj2nNRHhNn40vK+Pu+fevJSrahBimVH4SQHzS/39149gZUOlMmW38ftjNN0kEqDu4dB6F2MbpgTDJ7Mv2h1je/ZDJgOo6Yce8NHinGk9u46D17lsuTeOwfs8E+8um/XVoobsmf5Z1yml9ZiTgffMxoJopAG/9GRnJhGO028gGFPgM/IUUz0zs+zJ9UGCeGt3cpcftbMsHPoeNZtcRlyiDwb57Bp3PobQEqtYIEpP1LmAf0THgeEy+mYKesPy8Sx/6dGqSrHKa3BhvQMhTNsUhfSrm71MnaCCwzG9vkdqBUvQmXI4A/RvVuLeAbgywcpQxbd9W3hMw65docT0jPd8oGPS3bQYnDR75ccDzss= root@develop
+[core]
+    excludesfile = {{ .XDG_CONFIG_HOME }}/git/gitignore_global
+    autocrlf = input
+    quotepath = false
+[init]
+	defaultBranch = main
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = {{ .XDG_CONFIG_HOME }}/git/allowed-signers

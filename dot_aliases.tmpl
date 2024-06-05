@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# url
+alias urlencode='_urlencode(){ python -c "import urllib.parse, sys; print(urllib.parse.quote_plus(sys.argv[1]))" $1 }; _urlencode'
+alias urldecode='_urldecode(){ python -c "import urllib.parse, sys; print(urllib.parse.unquote(sys.argv[1]))" $1  }; _urldecode'
+
+# base64 
+alias b64encode='_base64encode(){ python -c "import base64, sys; print(base64.b64encode(sys.argv[1].encode(\"utf-8\")).decode(\"utf-8\"))" $1 }; _base64encode'
+alias b64decode='_base64decode(){ python -c "import base64, sys; print(base64.b64decode(sys.argv[1]).decode(\"utf-8\"))" $1 }; _base64decode'
+alias urlb64encode='_urlbase64encode(){ python -c "import base64, sys; print(base64.urlsafe_b64encode(sys.argv[1].encode(\"utf-8\")).decode(\"utf-8\"))" $1 }; _urlbase64encode'
+alias urlb64decode='_urlbase64decode(){ python -c "import base64, sys; print(base64.urlsafe_b64decode(sys.argv[1]).decode(\"utf-8\"))" $1 }; _urlbase64decode'
+
+# uuid
+alias uuid='_uuid4() { python -c "import uuid; print(uuid.uuid4())" }; _uuid4'
+
+alias myip='curl -s http://myip.ipip.net'
+alias rm="trash"
+export BAT_THEME="Monokai Extended"
+
+alias python=python3
+alias pip=pip3
+alias cz=chezmoi
