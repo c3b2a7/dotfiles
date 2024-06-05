@@ -14,9 +14,14 @@ alias urlb64decode='_urlbase64decode(){ python -c "import base64, sys; print(bas
 alias uuid='_uuid4() { python -c "import uuid; print(uuid.uuid4())" }; _uuid4'
 
 alias myip='curl -s http://myip.ipip.net'
-alias rm="trash"
 export BAT_THEME="Monokai Extended"
 
 alias python=python3
 alias pip=pip3
 alias cz=chezmoi
+
+{{- if eq .chezmoi.os "darwin" }}
+alias rm="trash"
+{{- else if eq .chezmoi.os "linux" }}
+{{- else if eq .chezmoi.os "windows" }}
+{{- end }}
