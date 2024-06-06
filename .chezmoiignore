@@ -2,4 +2,6 @@
 .zprofile
 .zshrc
 .aliases
+.oh-my-zsh
+.oh-my-zsh/*
 {{ end }}
