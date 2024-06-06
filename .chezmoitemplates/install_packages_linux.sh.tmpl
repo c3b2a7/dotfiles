@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [[ "$debug" == "true" || "$debug" == "yes" ]]; then
+export PS4='\[\e[35m\]+ $(basename $0):${FUNCNAME[0]}:$LINENO: \[\e[0m\]'
+    set -x
+fi
+{{- if .VERBOSE }}
+log_output=/dev/stdout
+{{- else }}
+log_output=/dev/null
+{{- end }}
+
+if command -v apt-get > /dev/null 2>&1; then
+    exec_install_package="sudo apt-get install -y"
+elif command -v yum > /dev/null 2>&1; then
+    exec_install_package="sudo yum install -y"
+elif command -v dnf > /dev/null 2>&1; then
+    exec_install_package="sudo dnf install -y"
+elif command -v pacman > /dev/null 2>&1; then
+    exec_install_package="sudo pacman -Sy --noconfirm"
+elif command -v zypper > /dev/null 2>&1; then
+    exec_install_package="sudo zypper install -y"
+else
+    echo "No supported package manager found!" && exit 1;
+fi
+
+install_package() {
+    local package=$1
+    if ! command -v $package > /dev/null 2>&1; then
+        $exec_install_package $package > $log_output 2>&1 && echo "$package is installed."
+    fi
+}
+
+{{ range .packages.linux -}}
+install_package {{ . }}
+{{ end -}}

@@ -1,0 +1,29 @@
+packages:
+  darwin: # install packages using homebrew
+    brews:
+      - wget
+      - telnet
+      - tldr
+      - fzf
+      - fd
+      - bat
+      - trash
+      - lrzsz
+      - neofetch
+      - git-chglog
+      - nvm
+      - tinygo
+      - binaryen
+      - protobuf
+    casks:
+      - iterm2
+      - syntax-highlight
+  linux: # install packages using package manager
+    - git
+    - curl
+    - wget
+    - telnet
+    - tldr
+    - fzf
+    - fd
+    - bat
