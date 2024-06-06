@@ -1,2 +1,2 @@
 [data]
-XDG_CONFIG_HOME = '{{ .chezmoi.homeDir }}{{ .chezmoi.pathSeparator }}.config'
+XDG_CONFIG_HOME = {{ joinPath .chezmoi.homeDir ".config" | quote }}

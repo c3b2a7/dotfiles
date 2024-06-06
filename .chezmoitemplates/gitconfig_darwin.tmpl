@@ -3,7 +3,7 @@
     email = "32198721+c3b2a7@users.noreply.github.com"
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOg4JNc0p23h651BmlnZIurOjTNCc6nMox18sUTp60gP
 [core]
-    excludesfile = {{ .XDG_CONFIG_HOME }}/git/gitignore_global
+    excludesfile = {{ joinPath .XDG_CONFIG_HOME "git/ignore" | quote }}
     autocrlf = input
     quotepath = false
 [init]
@@ -13,5 +13,5 @@
 [gpg]
     format = ssh
 [gpg "ssh"]
-    allowedSignersFile = {{ .XDG_CONFIG_HOME }}/git/allowed-signers
-    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+    allowedSignersFile = {{ joinPath .XDG_CONFIG_HOME "git/allowed-signers" | quote }}
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"

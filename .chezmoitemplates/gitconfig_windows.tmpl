@@ -3,16 +3,16 @@
     email = lifei@smyfinancial.com
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOg4JNc0p23h651BmlnZIurOjTNCc6nMox18sUTp60gP
 [core]
-    excludesfile = {{ .XDG_CONFIG_HOME }}//.config//git//gitignore_global
-	autocrlf = true
+    excludesfile = {{ joinPath .XDG_CONFIG_HOME "git/ignore" | quote }}
+    autocrlf = true
     quotepath = false
-    sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+    sshCommand = "C:/Windows/System32/OpenSSH/ssh.exe"
 [commit]
     gpgsign = true
 [gpg]
     format = ssh
 [gpg "ssh"]
-    allowedSignersFile = {{ .XDG_CONFIG_HOME }}//git//allowed-signers
-	program = {{ .chezmoi.homeDir }}//AppData//Local//1Password//app//8//op-ssh-sign.exe
+    allowedSignersFile = {{ joinPath .XDG_CONFIG_HOME "git/allowed-signers" | quote }}
+    program = {{ joinPath .chezmoi.homeDir "AppData/Local/1Password/app/8/op-ssh-sign.exe" | quote}}
 [http]
-	sslBackend = schannel
+    sslBackend = schannel
