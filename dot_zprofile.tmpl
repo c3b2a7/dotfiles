@@ -18,6 +18,12 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
 
 {{- if eq .chezmoi.os "darwin" }}
+{{   include ".custom/zprofile_darwin" }}
+{{- else if eq .chezmoi.os "linux" }}
+{{   include ".custom/zprofile_linux" }}
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
 {{   template "zprofile_darwin.tmpl" . }}
 {{- else if eq .chezmoi.os "linux" }}
 {{   template "zprofile_linux.tmpl" . }}

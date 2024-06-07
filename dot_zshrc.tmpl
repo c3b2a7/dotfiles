@@ -113,9 +113,9 @@ zstyle ":conda_zsh_completion:*" sort-envs-by-time true
 zstyle ":conda_zsh_completion:*" show-global-envs-first true
 
 {{ if eq .chezmoi.os "darwin" -}}
-{{   include ".zshrc_patch_darwin" }}
+{{   include ".custom/zshrc_darwin" }}
 {{- else if eq .chezmoi.os "linux" }}
-{{   include ".zshrc_patch_linux" }}
+{{   include ".custom/zshrc_linux" }}
 {{- end }}
 
 autoload -U compinit; compinit

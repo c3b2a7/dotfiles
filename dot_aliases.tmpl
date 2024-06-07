@@ -21,7 +21,7 @@ alias pip=pip3
 alias cz=chezmoi
 
 {{- if eq .chezmoi.os "darwin" }}
-alias rm="trash"
+{{   include ".custom/aliases_darwin" }}
 {{- else if eq .chezmoi.os "linux" }}
-{{- else if eq .chezmoi.os "windows" }}
+{{   include ".custom/aliases_linux" }}
 {{- end }}
