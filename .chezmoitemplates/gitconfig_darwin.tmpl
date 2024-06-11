@@ -14,4 +14,5 @@
     format = ssh
 [gpg "ssh"]
     allowedSignersFile = {{ joinPath .XDG_CONFIG_HOME "git/allowed-signers" | quote }}
-    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[push]
+	autoSetupRemote = true

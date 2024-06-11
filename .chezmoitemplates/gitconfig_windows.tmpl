@@ -13,6 +13,7 @@
     format = ssh
 [gpg "ssh"]
     allowedSignersFile = {{ joinPath .XDG_CONFIG_HOME "git/allowed-signers" | quote }}
-    program = {{ joinPath .chezmoi.homeDir "AppData/Local/1Password/app/8/op-ssh-sign.exe" | quote}}
+[push]
+	autoSetupRemote = true
 [http]
     sslBackend = schannel
