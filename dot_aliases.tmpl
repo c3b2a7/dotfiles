@@ -20,8 +20,15 @@ alias python=python3
 alias pip=pip3
 alias cz=chezmoi
 
+
+
 {{- if eq .chezmoi.os "darwin" }}
 {{   include ".custom/aliases_darwin" }}
 {{- else if eq .chezmoi.os "linux" }}
+{{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# WSL-specific code
+alias ssh='ssh.exe'
+alias ssh-add='ssh-add.exe'
+{{- end }}
 {{   include ".custom/aliases_linux" }}
 {{- end }}

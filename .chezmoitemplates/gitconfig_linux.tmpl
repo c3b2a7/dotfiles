@@ -6,6 +6,9 @@
     excludesfile = {{ joinPath .XDG_CONFIG_HOME "git/ignore" | quote }}
     autocrlf = input
     quotepath = false
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    sshCommand = ssh.exe
+{{   end }}
 [init]
 	defaultBranch = main
 [commit]
